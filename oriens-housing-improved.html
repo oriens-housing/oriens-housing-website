@@ -33,9 +33,9 @@
     <link rel="icon" type="image/svg+xml"
         href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0' y1='0' x2='1' y2='1'%3E%3Cstop offset='0%25' stop-color='%230284c7'/%3E%3Cstop offset='100%25' stop-color='%237dd3fc'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='24' height='24' x='4' y='4' rx='2' fill='url(%23g)' transform='rotate(45 16 16)'/%3E%3C/svg%3E">
 
-    <!-- Preload Hero Image -->
-    <link rel="preload" as="image"
-        href="images/hero.png">
+    <!-- Preload Hero Video & Poster -->
+    <link rel="preload" as="video" href="images/hero-video.mp4">
+    <link rel="preload" as="image" href="images/hero.png">
 
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -430,50 +430,54 @@
     <a href="#main-content" class="skip-link">メインコンテンツへスキップ</a>
 
     <!-- Navigation -->
-    <nav id="navbar" class="fixed w-full z-50 transition-all duration-500 py-6" role="navigation"
+    <nav id="navbar" class="fixed w-full z-50 transition-all duration-500 py-6 nav-transparent" role="navigation"
         aria-label="メインナビゲーション">
         <div class="container mx-auto px-6 flex justify-between items-center">
             <a href="#" class="flex items-center gap-3 group" aria-label="ORIENS HOUSING ホーム">
-                <img src="../../Downloads/株式会社オリエンスハウジング (500 X 300 Px) - 1 (1).png" alt="ORIENS HOUSING ロゴ"
-                    class="h-12 w-auto">
-                <span class="hidden lg:block text-sm font-serif tracking-widest text-oriens-900">株式会社オリエンスハウジング</span>
+                <div class="relative h-12">
+                    <img id="logo-white" src="images/logo-white.png" alt="ORIENS HOUSING ロゴ"
+                        class="h-12 w-auto transition-opacity duration-500">
+                    <img id="logo-dark" src="images/logo-dark.png" alt="ORIENS HOUSING ロゴ"
+                        class="h-12 w-auto absolute top-0 left-0 transition-opacity duration-500 opacity-0">
+                </div>
+                <span id="company-name" class="hidden lg:block text-base font-serif tracking-widest text-white transition-colors duration-500 font-medium" style="text-shadow: 0 2px 8px rgba(0,0,0,0.5);">株式会社オリエンスハウジング</span>
             </a>
 
-            <div class="hidden md:flex items-center space-x-12">
+            <div class="hidden md:flex items-center space-x-10">
                 <a href="#concept"
-                    class="nav-link text-sm tracking-widest hover:text-oriens-600 transition-colors uppercase font-english relative group"
-                    data-section="concept">
+                    class="nav-link text-base tracking-widest text-white hover:text-white/80 transition-colors uppercase font-english relative group font-medium"
+                    data-section="concept" style="text-shadow: 0 2px 8px rgba(0,0,0,0.5);">
                     Philosophy
                     <span
-                        class="absolute -bottom-2 left-0 w-0 h-[1px] bg-gold transition-all duration-300 group-hover:w-full"></span>
+                        class="absolute -bottom-2 left-0 w-0 h-[2px] bg-white transition-all duration-300 group-hover:w-full"></span>
                 </a>
                 <a href="#service"
-                    class="nav-link text-sm tracking-widest hover:text-oriens-600 transition-colors uppercase font-english relative group"
-                    data-section="service">
+                    class="nav-link text-base tracking-widest text-white hover:text-white/80 transition-colors uppercase font-english relative group font-medium"
+                    data-section="service" style="text-shadow: 0 2px 8px rgba(0,0,0,0.5);">
                     Services
                     <span
-                        class="absolute -bottom-2 left-0 w-0 h-[1px] bg-gold transition-all duration-300 group-hover:w-full"></span>
+                        class="absolute -bottom-2 left-0 w-0 h-[2px] bg-white transition-all duration-300 group-hover:w-full"></span>
                 </a>
                 <a href="#collection"
-                    class="nav-link text-sm tracking-widest hover:text-oriens-600 transition-colors uppercase font-english relative group"
-                    data-section="collection">
+                    class="nav-link text-base tracking-widest text-white hover:text-white/80 transition-colors uppercase font-english relative group font-medium"
+                    data-section="collection" style="text-shadow: 0 2px 8px rgba(0,0,0,0.5);">
                     Collection
                     <span
-                        class="absolute -bottom-2 left-0 w-0 h-[1px] bg-gold transition-all duration-300 group-hover:w-full"></span>
+                        class="absolute -bottom-2 left-0 w-0 h-[2px] bg-white transition-all duration-300 group-hover:w-full"></span>
                 </a>
                 <a href="#company"
-                    class="nav-link text-sm tracking-widest hover:text-oriens-600 transition-colors uppercase font-english relative group"
-                    data-section="company">
+                    class="nav-link text-base tracking-widest text-white hover:text-white/80 transition-colors uppercase font-english relative group font-medium"
+                    data-section="company" style="text-shadow: 0 2px 8px rgba(0,0,0,0.5);">
                     Company
                     <span
-                        class="absolute -bottom-2 left-0 w-0 h-[1px] bg-gold transition-all duration-300 group-hover:w-full"></span>
+                        class="absolute -bottom-2 left-0 w-0 h-[2px] bg-white transition-all duration-300 group-hover:w-full"></span>
                 </a>
-                <a href="#contact"
-                    class="px-6 py-2 border border-oriens-900 text-oriens-900 text-xs tracking-widest hover:bg-oriens-900 hover:text-white transition-all duration-300">CONTACT</a>
+                <a href="#contact" id="contact-btn"
+                    class="px-6 py-2 border-2 border-white text-white text-sm tracking-widest hover:bg-white hover:text-oriens-900 transition-all duration-300 font-medium">CONTACT</a>
             </div>
 
             <!-- Mobile Menu Button -->
-            <button id="mobile-menu-btn" class="md:hidden text-oriens-900" aria-label="メニューを開く" aria-expanded="false"
+            <button id="mobile-menu-btn" class="md:hidden text-white transition-colors duration-500" aria-label="メニューを開く" aria-expanded="false"
                 aria-controls="mobile-menu">
                 <i data-lucide="menu" class="w-6 h-6"></i>
             </button>
@@ -486,7 +490,7 @@
     <!-- Mobile Menu Panel -->
     <div id="mobile-menu" class="mobile-menu-panel" role="dialog" aria-label="モバイルメニュー" aria-hidden="true">
         <div class="flex justify-between items-center p-6 border-b border-gray-100">
-            <img src="../../Downloads/株式会社オリエンスハウジング (500 X 300 Px) - 1 (1).png" alt="ORIENS HOUSING ロゴ"
+            <img src="images/logo-dark.png" alt="ORIENS HOUSING ロゴ"
                 class="h-8 w-auto">
             <span class="text-sm font-serif tracking-wider text-oriens-900 ml-2">株式会社オリエンスハウジング</span>
             <button id="mobile-menu-close" class="text-gray-500 hover:text-oriens-900 transition-colors"
@@ -507,7 +511,7 @@
                 <a href="#contact"
                     class="mobile-nav-link inline-block px-6 py-3 border border-oriens-900 text-oriens-900 text-sm tracking-widest hover:bg-oriens-900 hover:text-white transition-all duration-300 text-center w-full">CONTACT</a>
             </div>
-            <div class="pt-6 text-xs text-gray-400 space-y-1">
+            <div class="pt-6 text-sm text-gray-600 space-y-1">
                 <p>TEL: 098-996-2733</p>
                 <p>沖縄県島尻郡八重瀬町字具志頭411番地1</p>
             </div>
@@ -520,28 +524,30 @@
         <!-- Hero Section -->
         <header class="relative h-screen w-full flex items-center justify-center overflow-hidden">
             <div class="absolute inset-0 z-0">
-                <img src="images/hero.png"
-                    alt="沖縄のリゾートでくつろぐ家族" class="w-full h-full object-cover opacity-90 animate-ken-burns"
-                    fetchpriority="high">
-                <div class="absolute inset-0 bg-gradient-to-b from-white/10 via-transparent to-white/40"></div>
+                <video autoplay muted loop playsinline
+                    class="w-full h-full object-cover"
+                    poster="images/hero.png">
+                    <source src="images/hero-video.mp4" type="video/mp4">
+                </video>
+                <div class="absolute inset-0 bg-black/30"></div>
             </div>
 
             <div class="relative z-10 text-center px-4 max-w-4xl mx-auto mt-16">
-                <p
-                    class="text-oriens-800 tracking-[0.3em] text-sm md:text-base font-bold mb-6 reveal-element font-english">
+                <p class="text-white tracking-[0.3em] text-base md:text-lg font-bold mb-6 reveal-element font-english"
+                    style="text-shadow: 0 2px 10px rgba(0,0,0,0.5);">
                     THE SANCTUARY OF THE EAST</p>
                 <h1 class="text-4xl md:text-6xl lg:text-7xl font-serif text-white mb-8 leading-tight reveal-element delay-100"
-                    style="text-shadow: 0 2px 20px rgba(0,0,0,0.2);">
+                    style="text-shadow: 0 4px 30px rgba(0,0,0,0.6);">
                     琉球の風が、<br>
-                    <span class="text-white/90">あなたの資産になる。</span>
+                    <span class="text-white">あなたの資産になる。</span>
                 </h1>
-                <p class="text-white text-sm md:text-lg tracking-widest font-light mb-12 reveal-element delay-200"
-                    style="text-shadow: 0 1px 10px rgba(0,0,0,0.3);">
+                <p class="text-white text-base md:text-xl tracking-widest font-normal mb-12 reveal-element delay-200"
+                    style="text-shadow: 0 2px 15px rgba(0,0,0,0.5);">
                     沖縄の海と空に抱かれた、<br class="md:hidden">唯一無二の価値をご提案します。
                 </p>
                 <div class="reveal-element delay-300">
                     <a href="#contact"
-                        class="inline-block border border-white text-white px-8 py-3 hover:bg-white hover:text-oriens-900 transition-all duration-500 tracking-widest text-sm backdrop-blur-sm">
+                        class="inline-block border-2 border-white text-white px-10 py-4 hover:bg-white hover:text-oriens-900 transition-all duration-500 tracking-widest text-base font-medium backdrop-blur-sm">
                         VIEW DETAILS
                     </a>
                 </div>
@@ -564,13 +570,13 @@
                 <div class="flex flex-col md:flex-row items-center gap-16">
                     <div class="md:w-1/2 relative">
                         <div class="aspect-[4/5] w-full reveal-image-wrapper shadow-2xl">
-                            <img src="https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80"
-                                alt="沖縄の高級住宅のモダンなインテリア" class="w-full h-full object-cover" loading="lazy">
+                            <img src="images/philosophy.jpg" alt="海を望むラグジュアリーなリビングルーム"
+                                class="w-full h-full object-cover" loading="lazy">
                         </div>
                         <div
                             class="absolute -bottom-10 -right-6 md:-right-10 bg-white p-8 shadow-xl max-w-xs hidden md:block reveal-element delay-300">
                             <p class="font-english text-gold text-lg italic">"Timeless Value"</p>
-                            <p class="text-xs text-gray-500 mt-2 leading-relaxed">時を経ても色褪せない、本質的な豊かさを。</p>
+                            <p class="text-sm text-gray-600 mt-2 leading-relaxed">時を経ても色褪せない、本質的な豊かさを。</p>
                         </div>
                     </div>
 
@@ -578,21 +584,21 @@
                         <div class="reveal-element">
                             <div class="flex items-center gap-4 mb-6">
                                 <div class="w-12 h-[1px] bg-gold" aria-hidden="true"></div>
-                                <span class="text-gold tracking-widest text-sm uppercase font-english">Philosophy</span>
+                                <span class="text-gold tracking-widest text-base uppercase font-english font-medium">Philosophy</span>
                             </div>
                             <h2 id="concept-heading"
                                 class="text-3xl md:text-4xl font-serif text-gray-900 mb-8 leading-relaxed">
                                 オリエンス（東方）から昇る陽のように、<br>
                                 新たな人生の始まりを。
                             </h2>
-                            <p class="text-gray-500 leading-loose mb-6 font-light">
+                            <p class="text-gray-700 leading-loose mb-6 text-base">
                                 株式会社オリエンスハウジングは、沖縄本島南部・八重瀬町を拠点に、県内全域の上質な不動産を取り扱っております。<br><br>
                                 私たちの使命は、単に物件を仲介することではありません。美しい海、心地よい風、そして沖縄独自のゆったりとした時間――それらすべてを含めた「至高のライフスタイル」をお届けすることです。<br><br>
                                 セカンドハウス、移住、あるいは投資用物件として。お客様一人ひとりのビジョンに寄り添い、厳選された特別な一室をご提案いたします。
                             </p>
                             <a href="#company"
-                                class="group inline-flex items-center gap-2 text-oriens-900 border-b border-oriens-900 pb-1 hover:text-gold hover:border-gold transition-colors">
-                                <span class="text-sm tracking-widest">READ MORE</span>
+                                class="group inline-flex items-center gap-2 text-oriens-900 border-b-2 border-oriens-900 pb-1 hover:text-gold hover:border-gold transition-colors">
+                                <span class="text-base tracking-widest font-medium">READ MORE</span>
                                 <i data-lucide="arrow-right"
                                     class="w-4 h-4 transform group-hover:translate-x-1 transition-transform"
                                     aria-hidden="true"></i>
@@ -609,9 +615,9 @@
                 aria-hidden="true"></div>
             <div class="container mx-auto px-6 relative z-10">
                 <div class="text-center mb-16 reveal-element">
-                    <span class="text-gold tracking-widest text-sm uppercase font-english block mb-2">Our
+                    <span class="text-gold tracking-widest text-base uppercase font-english font-medium block mb-2">Our
                         Expertise</span>
-                    <h2 id="service-heading" class="text-3xl font-serif text-gray-900">事業内容</h2>
+                    <h2 id="service-heading" class="text-3xl md:text-4xl font-serif text-gray-900">事業内容</h2>
                     <div class="w-12 h-[1px] bg-gold mx-auto mt-6" aria-hidden="true"></div>
                 </div>
 
@@ -623,12 +629,12 @@
                             aria-hidden="true">
                             <i data-lucide="home" class="w-6 h-6"></i>
                         </div>
-                        <h3 class="text-xl font-serif mb-4 text-gray-800">不動産売買仲介</h3>
-                        <p class="text-gray-500 text-sm leading-relaxed mb-4">
+                        <h3 class="text-xl md:text-2xl font-serif mb-4 text-gray-900">不動産売買仲介</h3>
+                        <p class="text-gray-700 text-base leading-relaxed mb-4">
                             土地・戸建・マンションからリゾート物件まで。
                             沖縄県内全域のネットワークを活かし、お客様の理想とする資産形成に最適な物件をご提案します。
                         </p>
-                        <ul class="text-xs text-gray-400 space-y-1 font-light">
+                        <ul class="text-sm text-gray-600 space-y-2">
                             <li>・居住用不動産の売買</li>
                             <li>・投資用・リゾート物件の仲介</li>
                             <li>・相続不動産のコンサルティング</li>
@@ -642,12 +648,12 @@
                             aria-hidden="true">
                             <i data-lucide="building-2" class="w-6 h-6"></i>
                         </div>
-                        <h3 class="text-xl font-serif mb-4 text-gray-800">企業誘致・事業用賃貸</h3>
-                        <p class="text-gray-500 text-sm leading-relaxed mb-4">
+                        <h3 class="text-xl md:text-2xl font-serif mb-4 text-gray-900">企業誘致・事業用賃貸</h3>
+                        <p class="text-gray-700 text-base leading-relaxed mb-4">
                             ビジネスの拠点を、最適な場所へ。
                             沖縄進出をご検討の企業様へ、事業用地の選定からオフィス・店舗の誘致、賃貸仲介までトータルでサポートいたします。
                         </p>
-                        <ul class="text-xs text-gray-400 space-y-1 font-light">
+                        <ul class="text-sm text-gray-600 space-y-2">
                             <li>・事業用定期借地権契約</li>
                             <li>・オフィス・店舗テナント仲介</li>
                             <li>・企業誘致コンサルティング</li>
@@ -661,12 +667,12 @@
                             aria-hidden="true">
                             <i data-lucide="shield-check" class="w-6 h-6"></i>
                         </div>
-                        <h3 class="text-xl font-serif mb-4 text-gray-800">管理業務</h3>
-                        <p class="text-gray-500 text-sm leading-relaxed mb-4">
+                        <h3 class="text-xl md:text-2xl font-serif mb-4 text-gray-900">管理業務</h3>
+                        <p class="text-gray-700 text-base leading-relaxed mb-4">
                             資産の輝きを、永続的に。
                             オーナー様の大切な不動産の資産価値を維持・向上させるため、日常的な建物管理から入居者対応まで、質の高い管理サービスを提供します。
                         </p>
-                        <ul class="text-xs text-gray-400 space-y-1 font-light">
+                        <ul class="text-sm text-gray-600 space-y-2">
                             <li>・賃貸管理・プロパティマネジメント</li>
                             <li>・建物メンテナンス手配</li>
                             <li>・リノベーション提案</li>
@@ -681,12 +687,12 @@
             <div class="container mx-auto px-6">
                 <div class="flex justify-between items-end mb-12 reveal-element">
                     <div>
-                        <span class="text-gold tracking-widest text-sm uppercase font-english block mb-2">Premium
+                        <span class="text-gold tracking-widest text-base uppercase font-english font-medium block mb-2">Premium
                             Collection</span>
-                        <h2 id="collection-heading" class="text-3xl font-serif text-gray-900">厳選物件</h2>
+                        <h2 id="collection-heading" class="text-3xl md:text-4xl font-serif text-gray-900">厳選物件</h2>
                     </div>
                     <a href="#"
-                        class="hidden md:flex items-center gap-2 text-sm text-gray-500 hover:text-oriens-600 transition-colors group">
+                        class="hidden md:flex items-center gap-2 text-base text-gray-700 hover:text-oriens-600 transition-colors group font-medium">
                         VIEW ALL
                         <i data-lucide="arrow-right"
                             class="w-4 h-4 transform group-hover:translate-x-1 transition-transform"
@@ -711,11 +717,11 @@
                         <div class="flex justify-between items-start">
                             <div>
                                 <h3
-                                    class="text-lg font-serif text-gray-900 group-hover:text-oriens-600 transition-colors">
+                                    class="text-xl font-serif text-gray-900 group-hover:text-oriens-600 transition-colors">
                                     Onna Seaside Villa</h3>
-                                <p class="text-xs text-gray-500 uppercase tracking-wide mt-1">恩納村 / 3LDK / オーシャンフロント</p>
+                                <p class="text-sm text-gray-600 uppercase tracking-wide mt-1">恩納村 / 3LDK / オーシャンフロント</p>
                             </div>
-                            <span class="text-gold font-serif text-lg">¥128,000,000</span>
+                            <span class="text-gold font-serif text-xl font-medium">¥128,000,000</span>
                         </div>
                     </div>
 
@@ -734,11 +740,11 @@
                         <div class="flex justify-between items-start">
                             <div>
                                 <h3
-                                    class="text-lg font-serif text-gray-900 group-hover:text-oriens-600 transition-colors">
+                                    class="text-xl font-serif text-gray-900 group-hover:text-oriens-600 transition-colors">
                                     Urban Palette Oriens</h3>
-                                <p class="text-xs text-gray-500 uppercase tracking-wide mt-1">中城村 / 2LDK / 高台眺望</p>
+                                <p class="text-sm text-gray-600 uppercase tracking-wide mt-1">中城村 / 2LDK / 高台眺望</p>
                             </div>
-                            <span class="text-gold font-serif text-lg">¥58,000,000</span>
+                            <span class="text-gold font-serif text-xl font-medium">¥58,000,000</span>
                         </div>
                     </div>
 
@@ -757,18 +763,18 @@
                         <div class="flex justify-between items-start">
                             <div>
                                 <h3
-                                    class="text-lg font-serif text-gray-900 group-hover:text-oriens-600 transition-colors">
+                                    class="text-xl font-serif text-gray-900 group-hover:text-oriens-600 transition-colors">
                                     Yaese Hilltop Land</h3>
-                                <p class="text-xs text-gray-500 uppercase tracking-wide mt-1">八重瀬町 / 300坪 / 事業用地</p>
+                                <p class="text-sm text-gray-600 uppercase tracking-wide mt-1">八重瀬町 / 300坪 / 事業用地</p>
                             </div>
-                            <span class="text-gold font-serif text-lg">¥45,000,000</span>
+                            <span class="text-gold font-serif text-xl font-medium">¥45,000,000</span>
                         </div>
                     </div>
                 </div>
 
                 <div class="mt-12 text-center md:hidden reveal-element">
                     <a href="#"
-                        class="inline-block border border-gray-300 px-8 py-3 text-sm hover:border-oriens-900 transition-colors">VIEW
+                        class="inline-block border-2 border-gray-400 px-8 py-3 text-base font-medium hover:border-oriens-900 hover:text-oriens-900 transition-colors">VIEW
                         ALL LISTINGS</a>
                 </div>
             </div>
@@ -782,10 +788,10 @@
             <div class="container mx-auto px-6 relative z-10">
                 <div class="flex flex-col md:flex-row gap-16">
                     <div class="md:w-1/3 reveal-element">
-                        <span class="text-gold tracking-widest text-sm uppercase font-english block mb-2">Company
+                        <span class="text-gold tracking-widest text-base uppercase font-english font-medium block mb-2">Company
                             Profile</span>
-                        <h2 id="company-heading" class="text-3xl font-serif mb-6">会社概要</h2>
-                        <p class="text-gray-400 text-sm leading-loose">
+                        <h2 id="company-heading" class="text-3xl md:text-4xl font-serif mb-6">会社概要</h2>
+                        <p class="text-gray-300 text-base leading-loose">
                             私たちは、沖縄の風土と共生する住まいづくりを目指しています。地域に根ざしたネットワークと、グローバルな視点を融合させ、お客様の資産形成に貢献いたします。
                         </p>
                     </div>
@@ -793,29 +799,29 @@
                     <div class="md:w-2/3 reveal-element delay-200">
                         <dl class="divide-y divide-gray-700">
                             <div class="grid grid-cols-1 md:grid-cols-3 py-4">
-                                <dt class="text-gray-400 text-sm font-light">会社名</dt>
-                                <dd class="col-span-2 font-serif text-lg">株式会社オリエンスハウジング</dd>
+                                <dt class="text-gray-400 text-base">会社名</dt>
+                                <dd class="col-span-2 font-serif text-xl">株式会社オリエンスハウジング</dd>
                             </div>
                             <div class="grid grid-cols-1 md:grid-cols-3 py-4">
-                                <dt class="text-gray-400 text-sm font-light">所在地</dt>
-                                <dd class="col-span-2 text-sm font-light">〒901-0512<br>沖縄県島尻郡八重瀬町字具志頭411番地1</dd>
+                                <dt class="text-gray-400 text-base">所在地</dt>
+                                <dd class="col-span-2 text-base">〒901-0512<br>沖縄県島尻郡八重瀬町字具志頭411番地1</dd>
                             </div>
                             <div class="grid grid-cols-1 md:grid-cols-3 py-4">
-                                <dt class="text-gray-400 text-sm font-light">代表者</dt>
-                                <dd class="col-span-2 text-sm">上江田 和也</dd>
+                                <dt class="text-gray-400 text-base">代表者</dt>
+                                <dd class="col-span-2 text-base">上江田 和也</dd>
                             </div>
                             <div class="grid grid-cols-1 md:grid-cols-3 py-4">
-                                <dt class="text-gray-400 text-sm font-light">連絡先</dt>
-                                <dd class="col-span-2 text-sm tracking-widest font-english">TEL: 098-996-2733 / FAX:
+                                <dt class="text-gray-400 text-base">連絡先</dt>
+                                <dd class="col-span-2 text-base tracking-widest font-english">TEL: 098-996-2733 / FAX:
                                     098-894-6852</dd>
                             </div>
                             <div class="grid grid-cols-1 md:grid-cols-3 py-4">
-                                <dt class="text-gray-400 text-sm font-light">免許番号</dt>
-                                <dd class="col-span-2 text-sm">沖縄県知事 (2) 第5113号</dd>
+                                <dt class="text-gray-400 text-base">免許番号</dt>
+                                <dd class="col-span-2 text-base">沖縄県知事 (2) 第5113号</dd>
                             </div>
                             <div class="grid grid-cols-1 md:grid-cols-3 py-4">
-                                <dt class="text-gray-400 text-sm font-light">加盟団体</dt>
-                                <dd class="col-span-2 text-sm">（公社）全日本不動産協会<br>（公社）不動産保証協会</dd>
+                                <dt class="text-gray-400 text-base">加盟団体</dt>
+                                <dd class="col-span-2 text-base">（公社）全日本不動産協会<br>（公社）不動産保証協会</dd>
                             </div>
                         </dl>
                     </div>
@@ -831,8 +837,8 @@
             <div class="container mx-auto px-6 max-w-4xl">
                 <div class="text-center mb-12 reveal-element">
                     <i data-lucide="mail" class="w-8 h-8 text-gold mx-auto mb-4" aria-hidden="true"></i>
-                    <h2 id="contact-heading" class="text-3xl font-serif text-gray-900 mb-4">お問い合わせ</h2>
-                    <p class="text-gray-500 text-sm">物件に関するご質問、売却のご相談など、お気軽にお問い合わせください。</p>
+                    <h2 id="contact-heading" class="text-3xl md:text-4xl font-serif text-gray-900 mb-4">お問い合わせ</h2>
+                    <p class="text-gray-700 text-base">物件に関するご質問、売却のご相談など、お気軽にお問い合わせください。</p>
                 </div>
 
                 <form id="contact-form"
@@ -842,7 +848,7 @@
                         <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
                             <div>
                                 <label for="contact-name"
-                                    class="block text-xs uppercase tracking-wider text-gray-500 mb-2">お名前 <span
+                                    class="block text-sm uppercase tracking-wider text-gray-700 mb-2">お名前 <span
                                         class="text-red-400">*</span></label>
                                 <input type="text" id="contact-name" name="name" required aria-required="true"
                                     class="w-full border-b border-gray-300 py-2 focus:outline-none focus:border-oriens-600 transition-colors bg-transparent placeholder-gray-300"
@@ -851,7 +857,7 @@
                             </div>
                             <div>
                                 <label for="contact-email"
-                                    class="block text-xs uppercase tracking-wider text-gray-500 mb-2">メールアドレス <span
+                                    class="block text-sm uppercase tracking-wider text-gray-700 mb-2">メールアドレス <span
                                         class="text-red-400">*</span></label>
                                 <input type="email" id="contact-email" name="email" required aria-required="true"
                                     class="w-full border-b border-gray-300 py-2 focus:outline-none focus:border-oriens-600 transition-colors bg-transparent placeholder-gray-300"
@@ -862,7 +868,7 @@
 
                         <div class="mt-6">
                             <label for="contact-subject"
-                                class="block text-xs uppercase tracking-wider text-gray-500 mb-2">ご用件</label>
+                                class="block text-sm uppercase tracking-wider text-gray-700 mb-2">ご用件</label>
                             <select id="contact-subject" name="subject"
                                 class="w-full border-b border-gray-300 py-2 focus:outline-none focus:border-oriens-600 bg-transparent text-gray-700">
                                 <option value="" disabled selected>お選びください</option>
@@ -875,7 +881,7 @@
 
                         <div class="mt-6">
                             <label for="contact-message"
-                                class="block text-xs uppercase tracking-wider text-gray-500 mb-2">お問い合わせ内容</label>
+                                class="block text-sm uppercase tracking-wider text-gray-700 mb-2">お問い合わせ内容</label>
                             <textarea id="contact-message" name="message" rows="4"
                                 class="w-full border-b border-gray-300 py-2 focus:outline-none focus:border-oriens-600 transition-colors bg-transparent resize-none placeholder-gray-300"
                                 placeholder="ご自由にご記入ください"></textarea>
@@ -883,7 +889,7 @@
 
                         <div class="text-center mt-10">
                             <button type="submit" id="submit-btn"
-                                class="bg-oriens-900 text-white px-12 py-4 text-sm tracking-[0.2em] hover:bg-gold transition-colors duration-300 w-full md:w-auto transform hover:scale-105">
+                                class="bg-oriens-900 text-white px-12 py-4 text-base tracking-[0.2em] hover:bg-gold transition-colors duration-300 w-full md:w-auto transform hover:scale-105 font-medium">
                                 SEND MESSAGE
                             </button>
                         </div>
@@ -895,7 +901,7 @@
                             <i data-lucide="check" class="w-8 h-8 text-green-500"></i>
                         </div>
                         <h3 class="text-2xl font-serif text-gray-900 mb-4">送信完了</h3>
-                        <p class="text-gray-500 text-sm leading-relaxed">
+                        <p class="text-gray-700 text-base leading-relaxed">
                             お問い合わせありがとうございます。<br>
                             内容を確認の上、担当者より折り返しご連絡いたします。
                         </p>
@@ -911,14 +917,14 @@
         <div class="container mx-auto px-6 flex flex-col md:flex-row justify-between items-center gap-6">
             <div class="text-center md:text-left">
                 <div class="flex items-center gap-3">
-                    <img src="../../Downloads/株式会社オリエンスハウジング (500 X 300 Px) - 1 (1).png" alt="ORIENS HOUSING ロゴ"
+                    <img src="images/logo-dark.png" alt="ORIENS HOUSING ロゴ"
                         class="h-10 w-auto">
                     <span class="text-sm font-serif tracking-widest text-oriens-900">株式会社オリエンスハウジング</span>
                 </div>
-                <p class="text-xs text-gray-400 mt-2">沖縄のプレミアム不動産・リゾート開発</p>
+                <p class="text-sm text-gray-500 mt-2">沖縄のプレミアム不動産・リゾート開発</p>
             </div>
 
-            <div class="flex gap-6 text-gray-400">
+            <div class="flex gap-6 text-gray-500">
                 <a href="#" class="hover:text-oriens-600 transition-colors" aria-label="Instagram">
                     <i data-lucide="instagram" class="w-5 h-5"></i>
                 </a>
@@ -927,7 +933,7 @@
                 </a>
             </div>
 
-            <div class="text-xs text-gray-400 font-light">
+            <div class="text-sm text-gray-500">
                 &copy; <span id="footer-year"></span> Oriens Housing Co., Ltd. All Rights Reserved.
             </div>
         </div>
@@ -944,15 +950,74 @@
         // ── Navbar ──────────────────────────────────────────
         const navbar = document.getElementById('navbar');
         const scrollIndicator = document.querySelector('.scroll-indicator');
+        const navLinks = document.querySelectorAll('.nav-link');
+
+        const companyName = document.getElementById('company-name');
+        const contactBtn = document.getElementById('contact-btn');
+        const mobileMenuBtnIcon = document.getElementById('mobile-menu-btn');
+        const logoWhite = document.getElementById('logo-white');
+        const logoDark = document.getElementById('logo-dark');
 
         function handleNavbarScroll() {
             const scrollY = window.scrollY;
             if (scrollY > 50) {
                 navbar.classList.add('glass', 'shadow-sm', 'py-2');
-                navbar.classList.remove('py-6');
+                navbar.classList.remove('py-6', 'nav-transparent');
+                // Switch to dark text
+                navLinks.forEach(link => {
+                    link.classList.remove('text-white', 'hover:text-white/70');
+                    link.classList.add('text-oriens-900', 'hover:text-oriens-600');
+                    link.style.textShadow = 'none';
+                    const underline = link.querySelector('span');
+                    if (underline) underline.classList.replace('bg-white', 'bg-gold');
+                });
+                if (companyName) {
+                    companyName.classList.remove('text-white');
+                    companyName.classList.add('text-oriens-900');
+                    companyName.style.textShadow = 'none';
+                }
+                if (contactBtn) {
+                    contactBtn.classList.remove('border-white', 'text-white', 'hover:bg-white', 'hover:text-oriens-900');
+                    contactBtn.classList.add('border-oriens-900', 'text-oriens-900', 'hover:bg-oriens-900', 'hover:text-white');
+                }
+                if (mobileMenuBtnIcon) {
+                    mobileMenuBtnIcon.classList.remove('text-white');
+                    mobileMenuBtnIcon.classList.add('text-oriens-900');
+                }
+                // Switch logos
+                if (logoWhite && logoDark) {
+                    logoWhite.classList.add('opacity-0');
+                    logoDark.classList.remove('opacity-0');
+                }
             } else {
                 navbar.classList.remove('glass', 'shadow-sm', 'py-2');
-                navbar.classList.add('py-6');
+                navbar.classList.add('py-6', 'nav-transparent');
+                // Switch to white text
+                navLinks.forEach(link => {
+                    link.classList.remove('text-oriens-900', 'hover:text-oriens-600');
+                    link.classList.add('text-white', 'hover:text-white/70');
+                    link.style.textShadow = '0 2px 8px rgba(0,0,0,0.5)';
+                    const underline = link.querySelector('span');
+                    if (underline) underline.classList.replace('bg-gold', 'bg-white');
+                });
+                if (companyName) {
+                    companyName.classList.remove('text-oriens-900');
+                    companyName.classList.add('text-white');
+                    companyName.style.textShadow = '0 2px 8px rgba(0,0,0,0.5)';
+                }
+                if (contactBtn) {
+                    contactBtn.classList.remove('border-oriens-900', 'text-oriens-900', 'hover:bg-oriens-900', 'hover:text-white');
+                    contactBtn.classList.add('border-white', 'text-white', 'hover:bg-white', 'hover:text-oriens-900');
+                }
+                if (mobileMenuBtnIcon) {
+                    mobileMenuBtnIcon.classList.remove('text-oriens-900');
+                    mobileMenuBtnIcon.classList.add('text-white');
+                }
+                // Switch logos
+                if (logoWhite && logoDark) {
+                    logoWhite.classList.remove('opacity-0');
+                    logoDark.classList.add('opacity-0');
+                }
             }
             // Fade out scroll indicator
             if (scrollIndicator) {
@@ -962,7 +1027,6 @@
         window.addEventListener('scroll', handleNavbarScroll, { passive: true });
 
         // ── Active Nav Section Highlight ────────────────────
-        const navLinks = document.querySelectorAll('.nav-link');
         const sections = document.querySelectorAll('section[id]');
 
         function updateActiveNav() {
